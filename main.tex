@@ -1,0 +1,104 @@
+\documentclass[14pt, a4paper]{report}
+
+\usepackage[T2A,T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[english, russian]{babel}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{titlesec}
+\usepackage{import}
+\usepackage{xifthen}
+\usepackage{pdfpages}
+\usepackage{transparent}
+\usepackage{physics}
+\usepackage{amsthm}
+
+\newtheorem{definition}{Определение}
+
+\newcommand{\incfig}[1]{%
+    \def\svgwidth{\columnwidth}
+    \import{./figures/}{#1.pdf_tex}
+}
+\let\oldforall\forall
+\renewcommand{\forall}{\oldforall \, }
+
+\let\oldexist\exists
+\renewcommand{\exists}{\oldexist \: }
+
+\newcommand\existu{\oldexist! \: }
+
+\begin{document}
+
+\chapter{Числа}%
+\label{cha:numbers}
+
+\begin{itemize}
+    \item $\mathbb{N}$ натуральные
+    \item $\mathbb{Z}$ целые
+    \item $\mathbb{Q}$ рациональные
+        \begin{align*}
+            \mathbb{Q} = \{ \frac{m}{n}, m \in \mathbb{Z}, n \in \mathbb{Z} \}
+        \end{align*}
+    \item $\mathbb{R}$ вещественные
+\end{itemize}
+
+
+\chapter{Комплексные числа}
+
+\section{Свойства действительных чисел}
+
+\begin{align*}
+    & \mathbb{R} \times \mathbb{R}  \\
+    & (a, b) + (c, d) := (a + c, b + d) \\
+    & (a, b) - (c, d) := (a - c, b - d) \\
+    & (a, b) \cdot (c, d) := (a \cdot c - b \cdot d, ad + bc) \\
+    & (a, b) : (c, d) := (\frac{ac + bd}{c^2 + d^2}, \frac{-ad+bc}{c^2+d^2}) \\
+\end{align*}
+
+
+\section{Свойства комплексных чисел}
+
+\begin{center}
+    $\mathbb{C}$ множество комплексных чисел
+\end{center}
+
+\begin{enumerate}
+    \item Коммутативность $z_1 + z_2 = z_2 + z_1$
+    \item Ассоциативность $(z_1 + z_2) + z_3 = z_1 + (z_2 + z_3)$
+    \item 
+        $
+        \begin{aligned}[t]
+            & \exists ! 0 \in C : z + 0 = z, &\\
+            & \forall z \in C, 0 = (0, 0) &\\
+        \end{aligned}
+        $
+    \item
+        $
+        \begin{aligned}[t]
+            & \forall z \in C, \exists! u \in C : z + u = 0 &\\
+            & z = (a, b); u = (-a, -b) &\\
+        \end{aligned}
+        $
+    \item $z_1 \cdot z_2 = z_2 \cdot z_1$
+    \item Ассоциативность умножения
+        \begin{align*}
+            (z_1 \cdot z_2) \cdot z_3 = z_1 \cdot (z_2 \cdot z_3)
+        \end{align*}
+    \item $\forall! 1 \in C : z \cdot 1 = z, \forall z \in C$
+        \begin{align*}
+            \begin{cases}
+                ac - bd = a \\
+                ad + bc = b
+            \end{cases}
+            \begin{cases}
+                ac^2 - bd = ac \\
+                ad^2 + bdc = bd
+            \end{cases}
+            \begin{cases}
+            a(c^2 + d^2) = ac + bd \\
+            d = \frac{ac - a}{b}
+        \end{cases}
+        \end{align*}
+\end{enumerate}
+
+\end{document}
